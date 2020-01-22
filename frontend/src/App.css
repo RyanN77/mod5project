@@ -1,0 +1,228 @@
+*{
+  margin: 10px;
+  color: white;
+  background-color: black;
+  text-align: center;
+  font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* NAVBAR */
+
+.navbar-links {
+  text-decoration: none;
+  background-color: orange;
+}
+
+.navbar-welcome {
+  font-size: 15px;
+  display: flex; 
+  justify-content: space-between;
+  margin-right: 20px;
+
+}
+
+.navbar-loggedin-buttons {
+  display: flex;
+  cursor: pointer;
+}
+
+.navbar-loggedout-buttons {
+  margin-left: 20px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.navbar-buttons {
+  font-size: 15px;
+  height: 30px;
+  width: 125px;
+  margin-right: 20px;
+  cursor: pointer;
+  background-color: orange;
+}
+
+/* GAMELIST */
+
+.searchbar {
+  font-size: 25px;
+  text-align: left;
+  margin-left: 20px;
+}
+
+.search {
+  font-size: 20px;
+}
+
+
+.follow-buttons {
+  width: 125px;
+}
+
+/* .follows-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+} */
+
+.gamelist-info-container {
+  display: flex;
+  margin: 10px;
+  border-style: solid;
+  border-color: white;
+}
+
+.gamelist-img {
+  margin: 10px;
+  min-height: 325px;
+  min-width: 325px;
+}
+
+.gamelist-titles{
+  cursor: pointer;
+  color: aqua;
+  text-decoration-color: orange;
+}
+
+.gamelist-summary{
+  color: lavender
+}
+
+.follows{
+  color: yellow
+}
+
+/* GAMEINFO AND REVIEWS*/
+
+.game-summary{
+  font-size: 20px;
+  line-height: 35px;
+}
+
+.videos{
+  width: 75px;
+}
+
+.videos-container{
+  border: 2px dashed gray;
+}
+
+.reviews{
+  font-size: 28px;
+  text-align: left;
+}
+
+.reviews-user:hover{
+  color: lightblue;
+  text-decoration-color: lightblue;
+  cursor: pointer;
+}
+
+.reviews-button{
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.reviews-container {
+  display: flex;
+  flex-direction: column;
+  border: 5px solid blue;
+}
+
+.reviews-info {
+  margin-top: 0px;
+  text-align: left;
+}
+
+.reviews-vote{
+  display: flex;
+  align-items: baseline;
+  font-size: 25px;
+}
+
+/* PROFILE */
+
+.profile-image-info{
+  display: flex;
+}
+
+.profile-image{
+  width: 300px;
+  height: 300px;
+
+}
+
+.profile-info{
+  display: flex;
+  justify-content: space-between;
+  font-size: 32px;
+}
+
+.profile-main-info{
+  margin-left: 5px;
+}
+
+.profile-username {
+  text-align: left;
+  font-family: Snell Roundhand, cursive;
+  font-size: 50px;
+}
+
+.profile-follows {
+  font-size: 24px;
+  border: 2px solid;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.profile-buttons-container{
+  padding: 10px;
+}
+
+.profile-buttons{
+  padding: 5px;
+  margin: 10px;
+  background-color: darkgreen
+}
+
+.profile-titles {
+  font-size: 16px;
+  cursor: pointer;
+  color: aqua;
+  text-decoration-color: orange;
+}
