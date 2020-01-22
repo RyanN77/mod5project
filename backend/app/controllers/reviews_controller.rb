@@ -29,6 +29,7 @@ class ReviewsController < ApplicationController
             {
                 review_id: review.id,
                 user_id: review.user_id,
+                img_url: User.find(review.user_id).img_url,
                 username: User.find(review.user_id).username,
                 rating: review.rating,
                 content: review.content,

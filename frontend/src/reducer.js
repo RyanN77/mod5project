@@ -4,7 +4,6 @@ const defaultState = {
     addReview: false,
     editUser: false,
 
-
     username: "",
     password: "",
     bio: "",

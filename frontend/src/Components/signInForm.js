@@ -69,30 +69,35 @@ class SignIn extends React.Component {
   render(){
     // console.log(this.state.showErrors)
     return (
-      <>
+      <div className="signin-form">
         <form onSubmit={e => this.submitForm(e)} >
-          <h1>USERNAME</h1>
-          <input name="username" value={this.props.username} onChange={(e) => this.props.formChange(e)} ></input>
-          <h1>PASSWORD</h1>
-          <input name="password" value={this.props.password} onChange={(e) => this.props.formChange(e)} type="password"></input>
-          {this.state.showCreateForm === true ? 
-          <>
-            <h1>BIO</h1>
-            <input name="bio" value={this.props.bio} onChange={(e) => this.props.formChange(e)} ></input>
-            <h1>IMAGE URL</h1>
-            <input name="img_url" value={this.props.img_url} onChange={(e) => this.props.formChange(e)} ></input>
-          </>
-          : null}
-          <input type="Submit" value="Submit"></input>
-        </form>
-        {this.state.showCreateForm === false ? 
-          <>
-            <button onClick={e => this.createUserForm(e)}>New User Form</button>
-          </>
-          : null}
-          {this.state.showError === true && this.state.showCreateForm === false ? <h1>Username or password does not exist or is incorrect. Please try again.</h1>: null}
-          {this.props.connected === true ? <h1>SUCCESSFULLY LOGGED IN</h1>: null}
-        </>
+          <div className="signin-form-container">
+            <h3>USERNAME</h3>
+            <input name="username" value={this.props.username} onChange={(e) => this.props.formChange(e)} ></input>
+            <h3>PASSWORD</h3>
+            <input name="password" value={this.props.password} onChange={(e) => this.props.formChange(e)} type="password"></input>
+            {this.state.showCreateForm === true ? 
+            <>
+              <h3>BIO</h3>
+              <input name="bio" value={this.props.bio} onChange={(e) => this.props.formChange(e)} ></input>
+              <h3>IMAGE URL</h3>
+              <input name="img_url" value={this.props.img_url} onChange={(e) => this.props.formChange(e)} ></input>
+            </>
+            : null}
+          </div>
+            {this.state.showCreateForm === false ? 
+            <>
+              <input type="Submit" value="Submit"></input>
+              <button onClick={(e) => this.createUserForm(e)}>New User Form</button>
+            </>
+              : 
+              <button onClick={(e) => this.createUserForm(e)}>Create User!</button>
+              }
+
+              {this.state.showError === true && this.state.showCreateForm === false ? <h3>Username or password does not exist or is incorrect. Please try again.</h3>: null}
+              {this.props.connected === true ? <h3>SUCCESSFULLY LOGGED IN</h3>: null}
+          </form>
+        </div>
       )
   }
 }

@@ -51,21 +51,6 @@ const mdp = {
   setUser
 }
 
-// export default connect(msp, mdp)(App);
 export default connect(msp, mdp)(App);
 
-// componentDidMount() {
-//   this.loginStatus()
-// }
-
-// loginStatus = () => {
-//   fetch('http://localhost:3000/logged_in', {
-//     credentials: 'include'
-//   }).then(resp => resp.json()).then(loginInfo => {
-//     this.setState({
-//       isLoggedIn: loginInfo.logged_in,
-//       user: loginInfo.user
-//     })
-//   })
-// }
 

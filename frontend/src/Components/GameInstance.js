@@ -60,7 +60,6 @@ const postReview = () => {
         setGameReviews(data)
     }).catch(errors => {
         console.log(errors)
-        //display error to the user
     })
 }
 
@@ -112,6 +111,7 @@ const upvote = (reviewID) => {
             })
         }).then(res => res.json()).then(likecreate => {
         console.log("successfully created upvote")
+        window.location.reload()
     })
 }
 
@@ -131,6 +131,7 @@ const downvote = (reviewID) => {
             })
         }).then(res => res.json()).then(likecreate => {
          console.log("successfully created downvote")
+         window.location.reload()
     })
 }
 
@@ -148,17 +149,54 @@ const loadVideos = () => {
 }
 
 // const ratingAverageColors = (rating) => {
-//     switch(rating) {
-//         case (rating <= 100):
-//             backgroundColor: darkgreen
+//     console.log("called the function", rating)
+//     let color = {}
+//     switch(color) {
+//         case (rating > 90):
+//             color = {color: "darkgreen"}
+//             break;
+//         case (rating > 80):
+//             color = {color: "green"}
+//             break;
+//         case (rating > 70):
+//             color = {color: "lightgreen"}
+//             break;
+//         case (rating > 60):
+//             color = {color: "yellowgreen"}
+//             break;
+//         case (rating > 50):
+//             color = {color: "yellow"}
+//             break;
+//         case (rating > 40):
+//             color = {color: "goldenrod"}
+//             break;
+//         case (rating > 30):
+//             color = {color: "orange"}
+//             break;
+//         case (rating > 20):
+//             color = {color: "darkorange"}
+//             break;
+//         case (rating > 10):
+//             color = {color: "orangered"}
+//             break;
+//         case (rating >= 0):
+//             color = {color: "red"}
+//             break;
+//         default:
+//             color = {color: "red"}
+//             break;
 //     }
+//     console.log(color)
+//     return color
 // }
 
+console.log(props.currentUser.user)
 console.log(selectedGame)
 console.log(videos)
+
     return (
         <>
-            <h1>{selectedGame.name}</h1>
+            <h1 className="gameinstance-titles">{selectedGame.name}</h1>
             <p className="game-summary">{selectedGame.summary}</p>
             {
                   props.connected === true ?
@@ -183,14 +221,24 @@ console.log(videos)
                   }
                 </div>
             {reviewObject.total_reviews === 0 || reviewObject.userhash.length === 0 ? 
-            <h4 className="reviews">Reviews: 0 Average Rating: 0</h4>
+            <h5 className="reviews">Reviews: 0 Average Rating: 0</h5>
             :
             <>
-            <h4 className="reviews">Reviews: {reviewObject.total_reviews} Average Rating:<span >{reviewObject.total_rating}</span></h4>
+            <h4 className="reviews">Reviews: {reviewObject.total_reviews} Average Rating:<span style={
+                reviewObject.total_rating > 90 ? {color: "darkgreen"} :
+                reviewObject.total_rating > 80 ? {color: "green"} : 
+                reviewObject.total_rating > 70 ? {color: "lightgreen"} : 
+                reviewObject.total_rating > 60 ? {color: "yellowgreen"} : 
+                reviewObject.total_rating > 50 ? {color: "yellow"} : 
+                reviewObject.total_rating > 40 ? {color: "goldenrod"} : 
+                reviewObject.total_rating > 30 ? {color: "orange"} : 
+                reviewObject.total_rating > 20 ? {color: "darkorange"} : 
+                reviewObject.total_rating > 10 ? {color: "yellowred"} : {color: "red"} 
+                }>{reviewObject.total_rating}</span></h4>
             {flag ? reviewObject.userhash.map(info => {
-                console.log(info)
                 return <div className="reviews-container">
-                <h2 className="reviews-info">Created by:<Link className="reviews-user" to={`/profile/${info.user_id}`}>{info.username}</Link></h2>
+                    {console.log(reviewObject)}
+                <h2 className="reviews-info">Created by:<Link className="reviews-user" to={`/profile/${info.user_id}`}><img className="review-img" style={{height: "25px", width: "25px"}}src={info.img_url} onError={(e) => {return e.target.onerror != 'https://www.evolvefish.com/assets/images/Decals/EF-VDC-00035(Black).jpg' ? e.target.src="https://www.evolvefish.com/assets/images/Decals/EF-VDC-00035(Black).jpg": e.target.src }}></img>{info.username}</Link></h2>
                 <h4 className="reviews-info">Rating: {info.rating}/100</h4>
                 <p className="reviews-info">{info.content}</p>
                 {props.connected === true ?
@@ -207,16 +255,24 @@ console.log(videos)
             </>
             }
             {props.connected === true ? 
-            <>
-                <h2 >Write a Review for {selectedGame.name}!</h2>
+            <div className="reviews-form-container">
+                <h2>Write a Review for<span className="gameinstance-titles">{selectedGame.name}</span>!</h2>
                     <form onSubmit={postReview}>
-                        <h2>Rating: </h2>
-                        <input name="rating" onChange={(e) => props.formChange(e)}></input>
-                        <h2>Review:</h2>
-                        <textarea name="review" onChange={(e) => props.formChange(e)}></textarea>
-                        <input type="submit"></input>
+                        <div className="review-rating-container">
+                            <h3>Rating: </h3>
+                            <input name="rating" onChange={(e) => props.formChange(e)}></input>
+                        </div>
+                        <div className="review-content-container">
+                            <h3>Review: </h3>
+                            <div>
+                            <textarea className="review-content-box" name="review" onChange={(e) => props.formChange(e)}></textarea>
+                            <br></br>
+                            <input className="review-content-submit" type="submit"></input>
+                            </div>
+                        </div>
+                        
                     </form>
-            </>
+            </div>
             : null }
         </>
     )

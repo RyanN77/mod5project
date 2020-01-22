@@ -44,15 +44,15 @@
 
 .navbar-links {
   text-decoration: none;
-  background-color: orange;
+  color: orange;
 }
 
 .navbar-welcome {
-  font-size: 15px;
+  text-decoration: underline;
+  font-size: 14px;
   display: flex; 
   justify-content: space-between;
   margin-right: 20px;
-
 }
 
 .navbar-loggedin-buttons {
@@ -73,23 +73,25 @@
   width: 125px;
   margin-right: 20px;
   cursor: pointer;
-  background-color: orange;
+  color: orange;
 }
 
 /* GAMELIST */
 
 .searchbar {
-  font-size: 25px;
+  font-size: 20px;
   text-align: left;
   margin-left: 20px;
 }
 
 .search {
-  font-size: 20px;
+  font-size: 15px;
 }
 
 
 .follow-buttons {
+  font-size: 15px;
+  height: 30px;
   width: 125px;
 }
 
@@ -129,6 +131,12 @@
 
 /* GAMEINFO AND REVIEWS*/
 
+.gameinstance-titles{
+  color: aqua;
+  text-decoration: underline;
+  text-decoration-color: orange
+}
+
 .game-summary{
   font-size: 20px;
   line-height: 35px;
@@ -164,6 +172,10 @@
   border: 5px solid blue;
 }
 
+.reviews-img{
+  margin: 0px;
+}
+
 .reviews-info {
   margin-top: 0px;
   text-align: left;
@@ -175,16 +187,73 @@
   font-size: 25px;
 }
 
+.reviews-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.review-rating-container{
+  display: flex;
+  margin: 0px;
+}
+
+.review-content-container{
+  display: flex;
+  margin: 0px;
+}
+
+.review-content-box{
+  margin: 0px;
+  width: 300px;
+  height: 50px;
+}
+
+.review-content-submit{
+  margin: 0px;
+}
+
+
+
 /* PROFILE */
+
+.profile-edit-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  border: 4px dashed powderblue;
+  margin: 0px;
+}
+
+.profile-fields-container{
+  display: flex;
+  justify-content: center;
+} 
+
+.profile-fields{
+  font-size: 14px;
+  background-color: slateblue
+}
+
+.profile-form-options-container{
+  display: flex;
+  justify-content: center;
+}
+
+.profile-form-options{
+  font-size: 20px;
+}
 
 .profile-image-info{
   display: flex;
+
 }
 
 .profile-image{
   width: 300px;
   height: 300px;
-
+  border: 5px solid skyblue
 }
 
 .profile-info{
@@ -198,9 +267,10 @@
 }
 
 .profile-username {
+  text-decoration: underline wavy skyblue;
   text-align: left;
   font-family: Snell Roundhand, cursive;
-  font-size: 50px;
+  font-size: 40px;
 }
 
 .profile-follows {
@@ -217,12 +287,20 @@
 .profile-buttons{
   padding: 5px;
   margin: 10px;
-  background-color: darkgreen
+  /* background-color: darkgreen */
+  color: darkorange;
 }
 
 .profile-titles {
   font-size: 16px;
   cursor: pointer;
   color: aqua;
-  text-decoration-color: orange;
+ 
+}
+
+/* SIGN IN */
+
+.signin-form{
+  display: flex; 
+  flex-direction: column;
 }

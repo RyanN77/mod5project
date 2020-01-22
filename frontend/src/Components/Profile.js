@@ -74,28 +74,35 @@ const deleteAccount = () => {
   return ( 
     <>
     {props.editUser === true ? 
-      <>
-        <form onSubmit={updateUser}>
+      <div>
+        <form className="profile-edit-container" onSubmit={updateUser}>
           {console.log(props.currentUser.user)}
-          <h3>Image URL</h3>
-          <input name="img_url" value={props.currentUser.user.img_url} onChange={(e) => props.editUserFormChange(e)}></input>
-          <h3>Username</h3>
-          <input name="username" value={props.currentUser.user.username} onChange={(e) => props.editUserFormChange(e)}></input>
-          <h3>Bio</h3>
-          <input name="bio" value={props.currentUser.user.bio} onChange={(e) => props.editUserFormChange(e)}></input>
-          <input type="submit"></input>
-          
-          <button onClick={() => props.revertChange(userInfo)}>Go Back</button>
+          <div className="profile-fields-container">
+            <h3>Image URL:</h3>
+            <input className="profile-fields" name="img_url" value={props.currentUser.user.img_url} onChange={(e) => props.editUserFormChange(e)}></input>
+          </div>
+          <div className="profile-fields-container">
+            <h3>Username:</h3>
+            <input className="profile-fields" name="username" value={props.currentUser.user.username} onChange={(e) => props.editUserFormChange(e)}></input>
+          </div>
+          <div className="profile-fields-container">
+            <h3>Bio:</h3>
+            <input className="profile-fields" name="bio" value={props.currentUser.user.bio} onChange={(e) => props.editUserFormChange(e)}></input>
+          </div>
+          <div className="profile-form">
+            <input className="profile-form-options" type="submit"></input>
+            <button className="profile-form-options" onClick={() => props.revertChange(userInfo)}>Go Back</button>
+          </div>
 {/*here*/}
         </form>
-      </>
+      </div>
     : 
     <div className="profile-box">
         <div className="profile-info">
           <div className="profile-image-info">
             <img className="profile-image" src={userInfo.img_url} onError={(e) => {return e.target.onerror != 'https://www.evolvefish.com/assets/images/Decals/EF-VDC-00035(Black).jpg' ? e.target.src="https://www.evolvefish.com/assets/images/Decals/EF-VDC-00035(Black).jpg": e.target.src }}></img>
               <div className="profile-main-info">
-                <p className="profile-username">{userInfo.username}</p>
+                <h3 className="profile-username">{userInfo.username}</h3>
                 <p className="profile-bio">{userInfo.bio}</p>
               </div>
             </div>
