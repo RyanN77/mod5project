@@ -8,8 +8,8 @@ if (props.editUser === false){
     if (props.connected === true){
         return (
             <div>
-              <div className="navbar-welcome">
-                <h1>Welcome {props.currentUser.user.username}</h1>
+              <div className="navbar-container">
+                <h1 className="navbar-welcome">Welcome {props.currentUser.user.username}</h1>
                 <button className="navbar-buttons"><Link className="navbar-links" to={'/games'}>All Games</Link></button>
               </div>
               <div className="navbar-loggedin-buttons">

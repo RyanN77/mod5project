@@ -5,7 +5,7 @@ import { formChange, resetValues } from '../reducerActions'
 import { FaRegThumbsDown, FaRegThumbsUp } from "react-icons/fa";
 
 function GameInstance(props){
-const key = ""
+const key = "97e4367ad012c7140e95a0e744d0731c"
 const [selectedGame, setSelectedGame] = useState({})
 const [gameReviews, setGameReviews] = useState([])
 const [reviewObject, setReviewObject] = useState({userhash:[]})
@@ -148,48 +148,6 @@ const loadVideos = () => {
   })
 }
 
-// const ratingAverageColors = (rating) => {
-//     console.log("called the function", rating)
-//     let color = {}
-//     switch(color) {
-//         case (rating > 90):
-//             color = {color: "darkgreen"}
-//             break;
-//         case (rating > 80):
-//             color = {color: "green"}
-//             break;
-//         case (rating > 70):
-//             color = {color: "lightgreen"}
-//             break;
-//         case (rating > 60):
-//             color = {color: "yellowgreen"}
-//             break;
-//         case (rating > 50):
-//             color = {color: "yellow"}
-//             break;
-//         case (rating > 40):
-//             color = {color: "goldenrod"}
-//             break;
-//         case (rating > 30):
-//             color = {color: "orange"}
-//             break;
-//         case (rating > 20):
-//             color = {color: "darkorange"}
-//             break;
-//         case (rating > 10):
-//             color = {color: "orangered"}
-//             break;
-//         case (rating >= 0):
-//             color = {color: "red"}
-//             break;
-//         default:
-//             color = {color: "red"}
-//             break;
-//     }
-//     console.log(color)
-//     return color
-// }
-
 console.log(props.currentUser.user)
 console.log(selectedGame)
 console.log(videos)
@@ -259,8 +217,8 @@ console.log(videos)
                 <h2>Write a Review for<span className="gameinstance-titles">{selectedGame.name}</span>!</h2>
                     <form onSubmit={postReview}>
                         <div className="review-rating-container">
-                            <h3>Rating: </h3>
-                            <input name="rating" onChange={(e) => props.formChange(e)}></input>
+                            <h3>Rating: 
+                            <input className="review-rating-box" name="rating" onChange={(e) => props.formChange(e)}></input>/100</h3>
                         </div>
                         <div className="review-content-container">
                             <h3>Review: </h3>
