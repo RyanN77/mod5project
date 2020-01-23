@@ -18,6 +18,7 @@ class SignIn extends React.Component {
 
   submitForm = (e) => {
     if (this.state.showCreateForm === true){
+      console.log(e)
       this.createUser(e)
     } else {
       this.login(e)
@@ -91,7 +92,7 @@ class SignIn extends React.Component {
               <button onClick={(e) => this.createUserForm(e)}>New User Form</button>
             </>
               : 
-              <button onClick={(e) => this.createUserForm(e)}>Create User!</button>
+              <button onClick={(e) => this.submitForm(e)}>Create User!</button>
               }
 
               {this.state.showError === true && this.state.showCreateForm === false ? <h3>Username or password does not exist or is incorrect. Please try again.</h3>: null}
