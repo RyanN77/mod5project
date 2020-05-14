@@ -7,7 +7,6 @@ const persistConfig = {
     key: 'root',
     storage,
     blacklist: ['showCreateForm', 'username', 'password', 'editUser']
-
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

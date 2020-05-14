@@ -6,6 +6,15 @@
   font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
+#myvideo{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  max-width: 100%;
+  z-index: -1;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -213,7 +222,6 @@
 .review-rating-box{
   text-align: left;
   font-size: 18px;
-
 }
 
 .review-content-box{
@@ -230,23 +238,25 @@
   margin: 0px;
 }
 
-
-
 /* PROFILE */
+
+.profile-edit-main-container{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
 
 .profile-edit-container{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  
+
   border: 4px solid powderblue;
   margin: 0px;
 }
 
-.profile-fields-container{
-  display: flex;
-  justify-content: center;
-} 
+/* .profile-fields-container{
+
+}  */
 
 .profile-fields{
   font-size: 14px;
@@ -318,8 +328,31 @@
 }
 
 /* SIGN IN */
+.signin-main-container{
+  display: flex;
+  justify-content: center;
+}
+
+.signin-container{
+  display: flex;
+  justify-content: center;
+  border: 3px solid white;
+  padding: 25px;
+  width: 25%;
+  box-shadow: 7px 15px white;
+}
 
 .signin-form{
-  display: flex; 
-  flex-direction: column;
+  border: 3px solid lightgoldenrodyellow;
+  font-size: 15px;
+  box-shadow: 7px 15px lightgoldenrodyellow
+}
+
+.signin-buttons{
+  font-size: 20px
+}
+
+.signin-form-fields{
+  font-size: 14px;
+  background-color: slateblue
 }

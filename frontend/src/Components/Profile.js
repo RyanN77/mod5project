@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
+
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { resetValues, logOut, editUserInfo, updateUserInfo, editUserFormChange, revertChange } from '../reducerActions'
@@ -37,10 +38,6 @@ const followFetch = async () => {
 useEffect(() => {
   userFetch()
   followFetch()
-}, [])
-
-useEffect(() => {
-  console.log(gameData)
 }, [gameData])
 
 const updateUser = () => {
@@ -74,9 +71,8 @@ const deleteAccount = () => {
   return ( 
     <>
     {props.editUser === true ? 
-      <div>
+      <div className="profile-edit-main-container">
         <form className="profile-edit-container" onSubmit={updateUser}>
-          {console.log(props.currentUser.user)}
           <div className="profile-fields-container">
             <h3>Image URL:</h3>
             <input className="profile-fields" name="img_url" value={props.currentUser.user.img_url} onChange={(e) => props.editUserFormChange(e)}></input>
@@ -93,7 +89,6 @@ const deleteAccount = () => {
             <input className="profile-form-options" type="submit"></input>
             <button className="profile-form-options" onClick={() => props.revertChange(userInfo)}>Go Back</button>
           </div>
-{/*here*/}
         </form>
       </div>
     : 

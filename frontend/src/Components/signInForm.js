@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 import { formChange, resetValues, successfulLogin } from '../reducerActions'
 
+
 class SignIn extends React.Component {
 
   state = {
@@ -70,35 +71,39 @@ class SignIn extends React.Component {
   render(){
     // console.log(this.state.showErrors)
     return (
+  <div className="signin-main-container">
+    <div className="signin-container">
       <div className="signin-form">
         <form onSubmit={e => this.submitForm(e)} >
           <div className="signin-form-container">
             <h3>USERNAME</h3>
-            <input name="username" value={this.props.username} onChange={(e) => this.props.formChange(e)} ></input>
+            <input className="signin-form-fields" name="username" value={this.props.username} onChange={(e) => this.props.formChange(e)} ></input>
             <h3>PASSWORD</h3>
-            <input name="password" value={this.props.password} onChange={(e) => this.props.formChange(e)} type="password"></input>
+            <input className="signin-form-fields" name="password" value={this.props.password} onChange={(e) => this.props.formChange(e)} type="password"></input>
             {this.state.showCreateForm === true ? 
             <>
               <h3>BIO</h3>
-              <input name="bio" value={this.props.bio} onChange={(e) => this.props.formChange(e)} ></input>
+              <input className="signin-form-fields" name="bio" value={this.props.bio} onChange={(e) => this.props.formChange(e)} ></input>
               <h3>IMAGE URL</h3>
-              <input name="img_url" value={this.props.img_url} onChange={(e) => this.props.formChange(e)} ></input>
+              <input className="signin-form-fields" name="img_url" value={this.props.img_url} onChange={(e) => this.props.formChange(e)} ></input>
             </>
             : null}
           </div>
             {this.state.showCreateForm === false ? 
             <>
-              <input type="Submit" value="Submit"></input>
-              <button onClick={(e) => this.createUserForm(e)}>New User Form</button>
+              <input className="signin-buttons" type="Submit" value="Submit"></input>
+              <button className="signin-buttons" onClick={(e) => this.createUserForm(e)}>New User Form</button>
             </>
               : 
-              <button onClick={(e) => this.submitForm(e)}>Create User!</button>
+              <button className="signin-buttons" onClick={(e) => this.submitForm(e)}>Create User!</button>
               }
 
               {this.state.showError === true && this.state.showCreateForm === false ? <h3>Username or password does not exist or is incorrect. Please try again.</h3>: null}
               {this.props.connected === true ? <h3>SUCCESSFULLY LOGGED IN</h3>: null}
           </form>
         </div>
+      </div>
+    </div>
       )
   }
 }

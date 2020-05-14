@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from "react";
+import React, {useState, useEffect} from "react";
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 
@@ -12,22 +12,28 @@ import Profile from './Components/Profile';
 import GameInstance from './Components/GameInstance'
 
 function App(props) {
-  const navBar = <NavBar />
-  console.log(props)
 
     return (
       <BrowserRouter>
         <Switch>
-
-          <Route path="/profile/:id" render={(props) => <><NavBar /><Profile {...props} /></>}/>
-          <Route path="/games/:id" render={(props) => <>{navBar}<GameInstance {...props} /></>}/>
-          <Route path="/games" render={(props) => <>{navBar}<Gamelist {...props}/></>}/>
-          <Route path="/sign_in" render={(props) => <SignIn {...props}/>}/>
-
+          <Route path="/games/:id" render={(props) => <><NavBar {...props}/><GameInstance {...props} /></>}/>
+          <Route path="/games" render={(props) => <><NavBar {...props}/><Gamelist {...props}/></>}/>
+          <Route path="/profile/:id" render={(props) => <><NavBar {...props}/><Profile {...props} /></>}/>
+          <Route path="/sign_in" render={(props) => <><SignIn {...props}/></>}/>
+          <Route path="/" render={Video}/>
         </Switch>
       </BrowserRouter>
     )
   
+}
+
+export function Video(){
+  console.log("video")
+  return (
+    <video autoPlay muted loop id="myvideo" src="video.mp4" type="video/mp4">
+      VIDEO NOT SUPPORTED
+    </video>
+  )
 }
 
 function msp(state){
@@ -52,5 +58,6 @@ const mdp = {
 }
 
 export default connect(msp, mdp)(App);
+
 
 

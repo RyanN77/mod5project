@@ -13,7 +13,7 @@ if (props.editUser === false){
                 <button className="navbar-buttons"><Link className="navbar-links" to={'/games'}>All Games</Link></button>
               </div>
               <div className="navbar-loggedin-buttons">
-                <button className="navbar-buttons" ><a className="navbar-links" href={`/profile/${props.currentUser.user.id}`}>Your Profile</a></button>
+                <button className="navbar-buttons"><Link className="navbar-links" to={`/profile/${props.currentUser.user.id}`}>Your Profile</Link></button>
                 <button className="navbar-buttons" onClick={props.logOut}>Log Out</button>
               </div>
             </div>

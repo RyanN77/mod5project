@@ -78,7 +78,6 @@ return (
         <h2 className="searchbar">Search Games: <input className="search" style={filteredArrayOfGames.length === 0 ? divStyle2 : divStyle1} onChange={(e) => filterGames(e)}></input></h2>
         {filteredArrayOfGames.map(game => {
         return (
-            <>
             <div className="gamelist-info-container">
                 <img className="gamelist-img" src={game.cover_url}></img>
                 <div className="gamelist-info">
@@ -107,11 +106,9 @@ return (
                         </div>
                     </div>
                 </div>
-            </>
-            
         )
     })}</div>
-)
+    )
     
 }
 
