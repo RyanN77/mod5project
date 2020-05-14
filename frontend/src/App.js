@@ -16,9 +16,9 @@ function App(props) {
     return (
       <BrowserRouter>
         <Switch>
+          <Route path="/profile/:id" render={(props) => <><NavBar {...props}/><Profile {...props} /></>}/>
           <Route path="/games/:id" render={(props) => <><NavBar {...props}/><GameInstance {...props} /></>}/>
           <Route path="/games" render={(props) => <><NavBar {...props}/><Gamelist {...props}/></>}/>
-          <Route path="/profile/:id" render={(props) => <><NavBar {...props}/><Profile {...props} /></>}/>
           <Route path="/sign_in" render={(props) => <><SignIn {...props}/></>}/>
           <Route path="/" render={Video}/>
         </Switch>

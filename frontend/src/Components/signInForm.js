@@ -68,6 +68,16 @@ class SignIn extends React.Component {
     })
   }
 
+  goBack = (e) => {
+    if(this.state.showCreateForm === true){
+      this.setState({
+        showCreateForm: false
+      })
+    } else {
+      window.history.back()
+    }
+  }
+
   render(){
     // console.log(this.state.showErrors)
     return (
@@ -97,10 +107,10 @@ class SignIn extends React.Component {
               : 
               <button className="signin-buttons" onClick={(e) => this.submitForm(e)}>Create User!</button>
               }
-
               {this.state.showError === true && this.state.showCreateForm === false ? <h3>Username or password does not exist or is incorrect. Please try again.</h3>: null}
               {this.props.connected === true ? <h3>SUCCESSFULLY LOGGED IN</h3>: null}
           </form>
+          <button onClick={(e) => this.goBack(e)}>Go Back</button>
         </div>
       </div>
     </div>

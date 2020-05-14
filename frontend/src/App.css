@@ -60,7 +60,7 @@
   font-size: 14px;
   display: flex; 
   justify-content: space-between;
-  margin-right: 20px;
+  margin: 0px 20px -20px 10px;
 }
 
 .navbar-welcome {
@@ -69,21 +69,21 @@
 
 .navbar-loggedin-buttons {
   display: flex;
-  cursor: pointer;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0px;
 }
 
 .navbar-loggedout-buttons {
   margin-left: 20px;
   display: flex;
   justify-content: space-between;
-  cursor: pointer;
 }
 
 .navbar-buttons {
   font-size: 15px;
   height: 30px;
   width: 125px;
-  margin-right: 20px;
   cursor: pointer;
   color: orange;
 }

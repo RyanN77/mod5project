@@ -5,7 +5,7 @@ import { formChange, resetValues } from '../reducerActions'
 import { FaRegThumbsDown, FaRegThumbsUp } from "react-icons/fa";
 
 function GameInstance(props){
-const key = "97e4367ad012c7140e95a0e744d0731c"
+const key = "212cf785360204cbbb042d1357e8ae5f"
 const [selectedGame, setSelectedGame] = useState({})
 const [gameReviews, setGameReviews] = useState([])
 const [reviewObject, setReviewObject] = useState({userhash:[]})
@@ -30,7 +30,6 @@ useEffect(() => {
     async function Reviewfetch(){
         const resp = fetch(`http://localhost:3000/filter_reviews/${props.match.params.id}`).then(resp => resp.json())
         .then(data => {
-            console.log(data)
             setReviewObject(data)
         })
     }

@@ -10,10 +10,10 @@ if (props.editUser === false){
             <div>
               <div className="navbar-container">
                 <h1 className="navbar-welcome">Welcome {props.currentUser.user.username}</h1>
-                <button className="navbar-buttons"><Link className="navbar-links" to={'/games'}>All Games</Link></button>
+                <Link className="navbar-links" to={'/games'}><button className="navbar-buttons">All Games</button></Link>
               </div>
               <div className="navbar-loggedin-buttons">
-                <button className="navbar-buttons"><Link className="navbar-links" to={`/profile/${props.currentUser.user.id}`}>Your Profile</Link></button>
+                <Link className="navbar-links" to={`/profile/${props.currentUser.user.id}`}><button className="navbar-buttons">Your Profile</button></Link>
                 <button className="navbar-buttons" onClick={props.logOut}>Log Out</button>
               </div>
             </div>
@@ -21,8 +21,8 @@ if (props.editUser === false){
     }
     return (
         <div className="navbar-loggedout-buttons">
-          <button className="navbar-buttons"><Link className="navbar-links" to={'/sign_in'}>Login</Link></button>
-          <button className="navbar-buttons"><Link className="navbar-links" to={'/games'}>All Games</Link></button>
+          <Link className="navbar-links" to={'/sign_in'}><button className="navbar-buttons">Login</button></Link>
+          <Link className="navbar-links" to={'/games'}><button className="navbar-buttons">All Games</button></Link>
         </div>
     )
 } else return null
